@@ -31,6 +31,6 @@ app.get('/shayari', async (req, res) => {
   }
 });
 
-app.listen(process.env, () => {
+app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
