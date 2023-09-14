@@ -12,7 +12,7 @@ app.use(express.json());
 app.get("/joke", async (req, res) => {
   try {
     const keyword = req.query.keyword;
-    console.log(process.env.OPENAI_API_KEY)
+    console.log(process.env.OPENAI)
     const response = await axios.post(
       "https://api.openai.com/v1/engines/davinci/completions",
       {
@@ -23,7 +23,7 @@ app.get("/joke", async (req, res) => {
       },
       {
         headers: {
-          Authorization: `Bearer ${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} `,
+          Authorization: `Bearer ${process.env.OPENAI} `,
           "Content-Type": "application/json",
         },
       }
@@ -50,7 +50,7 @@ app.get("/shayari", async (req, res) => {
       },
       {
         headers: {
-          Authorization: `Bearer ${"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"} `,
+          Authorization: `Bearer ${process.env.OPENAI_API_KEY} `,
           "Content-Type": "application/json",
         },
       }
