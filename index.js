@@ -5,13 +5,14 @@ var cors = require("cors");
 
 const app = express();
 app.use(cors());
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 
 app.use(express.json());
 //joke
 app.get("/joke", async (req, res) => {
   try {
     const keyword = req.query.keyword;
+    console.log("keyword",keyword)
     console.log(process.env.OPENAI)
     const response = await axios.post(
       "https://api.openai.com/v1/engines/davinci/completions",
@@ -50,7 +51,7 @@ app.get("/shayari", async (req, res) => {
       },
       {
         headers: {
-          Authorization: `Bearer ${process.env.OPENAI_API_KEY} `,
+          Authorization: `Bearer ${process.env.OPENAI} `,
           "Content-Type": "application/json",
         },
       }
